@@ -8,3 +8,6 @@ On second thought, it might make more sense to use a more modern pipeline, compo
 
 ###2016-12-06T11:46:05
 Edited the samtools_pileup script for a bug. 
+
+###2016-12-06T14:16:08
+Created script NYU_pipeline.sh, which is currently testing its ability to work in a loop with only the CollectInsertSizeMetrics option. Will see how this goes and then add more functions that can run the entire pipeline.

@@ -6,4 +6,5 @@ Running script samtools_pileup.sh with commented out section that was originally
 
 On second thought, it might make more sense to use a more modern pipeline, composed of several different steps that can do the quality filtering for me based on GATK. A good outline is found here https://gencore.bio.nyu.edu/variant-calling-pipeline/ Will write script.
 
-
+###2016-12-06T11:46:05
+Edited the samtools_pileup script for a bug. 

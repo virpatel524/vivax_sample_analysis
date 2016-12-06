@@ -9,5 +9,5 @@
 # done
 
 for alpha in ../data/sequences_samtools_pileup/*; do
-	vcfutils.pl varFilter $alpha > awk '$6>=20' > ../data/sequences_pileup_edited/$(basename $alpha).final
+	vcfutils.pl varFilter $alpha | awk '$6>=20' > ../data/sequences_pileup_edited/$(basename $alpha).final
 done

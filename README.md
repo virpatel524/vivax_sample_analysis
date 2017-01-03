@@ -11,3 +11,41 @@ Edited the samtools_pileup script for a bug.
 
 ###2016-12-06T14:16:08
 Created script NYU_pipeline.sh, which is currently testing its ability to work in a loop with only the CollectInsertSizeMetrics option. Will see how this goes and then add more functions that can run the entire pipeline.
+
+###2016-12-06T23:34:25
+Created script nyu_pipeline_prepare.py, which creates an automated pipeline nyu_pipeline_launch.sh to run 8 BAM snp calls at a time. Again, using NYU_pipeline as the general script, which essentially runs the entire pipeline on the BAM file provided as input.
+
+Results are being aggregated in nyu_pipeline_results under the data directory.
+
+###2016-12-09T17:14:03
+
+Directory w/ snp_calls (nyu_pipeline) is still being processed, so need to wait some more. Now is the time to begin thinking about what initial analyses I want to do. Furthermore, what kind of quality control measures can I do?
+
+###2016-12-11T19:26:54
+Moved snp and indel calls all to nyu_pipeline_recalc, which contains the appropriate directories. I am rm'ing the nyu_pipeline_results directory for the purposes of saving space.
+
+###2016-12-15T17:09:20
+Looking at options for extra variant filtering. We used the NYU pipeline, which had certain options (QC) that may not be appropriate given that this is Vivax, not human. Double checking the NYU protocol to see if anything outlandish exists.
+
+Checked the variant filtering options used by NYU, seems as though they're supported by NYU. Wil email collaborator from UNC to double check variants are appropriate quality.
+
+###2016-12-26T14:27:20
+The Kissinger 2016 letter makes reference to a study where vivax genes under selection were identified using an outgroup of P. cylomonigi. This stategy could als be employed using an outgroup sample of vivax from Korea, for instance.
+
+###2016-12-26T14:30:11
+How might we accomplish a copy number variation study with this project?
+
+###2016-12-26T16:21:50
+I manually went through the genes.gbk file for snpEff and edited the chromosome sections to instead have the chromsoome version number, which should help with matching. I'm still conecerned with the scaffold segments, but that'll have to wait for now. Let's see if there's a signficant difference going forward.
+
+###2016-12-28T11:11:46
+Created a new genome file for PVP01, it's on my desktop, can be used for IGV viewer. I will upload onto server soon. Now I'm going to try to use snpEff with this dataset, hopefully the chromosome errors won't be an issue
+
+###2016-12-28T11:39:12
+SnpEff was successful, have now got the annotations. Am downloading them onto my machine so I can view them
+
+###2017-01-01T16:34:22
+Simple test, looking at phylogenetic history of pvmdr1. Let's attempt structure analysis first.
+
+###2017-01-02T23:07:06
+Used the command snpsiftrun filter " (ANN[*].GENE = PVP01_1447300)" ../ef_pass_merge_sorted.vcf.ann > PVP01_1447300_extracted.vcf.an to filter out the SNPs for that gene in question. Then, I faststructured the file using the program, and used chooseK to find that 5 populations are most appropriate for dividing. The figrue for this can be found here: /home/vdp5/projects/vivax_cambodia/data/distrust/pvdmr1_5k.png. I wonder if we can recapture this relationship using another gene of interest. Is this simply a random result or is it significant?
